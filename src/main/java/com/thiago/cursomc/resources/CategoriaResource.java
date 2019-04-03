@@ -1,16 +1,29 @@
 package com.thiago.cursomc.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.thiago.cursomc.domain.Categoria;
+
 @RestController
-@RequestMapping("/categorias") //
+@RequestMapping("/categorias") // Mapeando controller
 public class CategoriaResource {
 
-	@RequestMapping(method = RequestMethod.GET)//verbo GET do HTTP para obter informações
-	public String listar() {
-		return "REST esta funcionando";
+	@RequestMapping(method = RequestMethod.GET) // verbo GET do HTTP para obter informações
+	public List<Categoria> listar() {
+
+		Categoria cat1 = new Categoria(1, "nformatica");
+		Categoria cat2 = new Categoria(2, "escritorio");
+
+		List<Categoria> lista = new ArrayList<>();
+		lista.add(cat1);
+		lista.add(cat2);
+
+		return lista;
 	}
 
 }
